@@ -25,6 +25,11 @@ RASTER_LAYERS_TYPES = (
     
 )
 
+JS_BOOL_CHOICES = (
+    ('true', 'True'),
+    ('false', 'False'),
+)
+
 
 
 class Map(models.Model):
@@ -64,7 +69,18 @@ class VectorLayer(_Layer):
     type = models.CharField(max_length=300, choices = VECTOR_LAYERS_TYPES)
     layer_uri =  models.CharField(null=True, blank=True, max_length=300)
     
+    #layer options
+    extract_styles = models.CharField(choices = JS_BOOL_CHOICES, default="true", max_length=10);
+    extract_attributes = models.CharField(choices = JS_BOOL_CHOICES, default="true", max_length=10);    
     
+    #popup_handler = models.BooleanField(default=False)
+
+
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to='openlayers')
+    description = models.TextField(null=True, blank=True)
+
 
 """    
 class MapsRasterLayers(models.Model):

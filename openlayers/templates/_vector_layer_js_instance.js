@@ -4,8 +4,8 @@ var {{ varname }}=function(){
             protocol: new OpenLayers.Protocol.HTTP({
                 url: "{{ layer.layer_uri }}",
                 format: new OpenLayers.Format.{{ layer.type|upper }}({
-                    extractStyles: true, 
-                    extractAttributes: true,
+                    extractStyles: {{ layer.extract_styles }}, 
+                    extractAttributes: {{ layer.extract_attributes }},
                     maxDepth: 2
                 })
             })

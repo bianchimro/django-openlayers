@@ -24,3 +24,4 @@ class MapAdmin(admin.ModelAdmin):
 admin.site.register(Map, MapAdmin)
 admin.site.register(RasterLayer)
 admin.site.register(VectorLayer)
+admin.site.register(UploadedFile)
