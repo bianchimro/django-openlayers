@@ -19,6 +19,7 @@ Implemented Features
 * basic Map, VectorLayer and RasterLayer and UploadedFile models
 * Raster Layers: OSM and Google (street, terrain, satellite, hybrid)
 * Vector Layers: KML
+* some map controls
 * simple view and template for map
 * basic django-admin Map editing interface, with preview
 * serving uploaded files for map (kml, etc)
@@ -27,15 +28,17 @@ Implemented Features
 RoadMap/Planned Features
 ------------------------
 
+* layer ordering, with drag and drop in admin
 * templatetags
 * django-cms plugin
 * write documentation
 * More Raster Layers
 * More Vector Layers
 * Popup support for vector layer
-* Feature inspector for vector layer
+* Feature inspector for vector layers
 * Cross-origin vector layer sources
 * Automatic json layers (or other format) from selected GeoDjango models, with generic views
+* Thematic mapping and legend for vector layers
 
 
 Installation
