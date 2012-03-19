@@ -13,7 +13,7 @@ def getSlug(s):
 
 VECTOR_LAYERS_TYPES = (
     ('kml', 'KML layer'),
-    ('wfs', 'wfs layer'),
+    #('wfs', 'wfs layer'),
 )
 
 RASTER_LAYERS_TYPES = (

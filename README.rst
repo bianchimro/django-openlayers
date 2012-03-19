@@ -17,6 +17,8 @@ Implemented Features
 --------------------
 
 * basic Map, VectorLayer and RasterLayer and UploadedFile models
+* Raster Layers: OSM and Google (street, terrain, satellite, hybrid)
+* Vector Layers: KML
 * simple view and template for map
 * basic django-admin Map editing interface, with preview
 * serving uploaded files for map (kml, etc)
