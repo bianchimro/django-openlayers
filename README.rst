@@ -29,9 +29,11 @@ RoadMap/Planned Features
 ------------------------
 
 * layer ordering, with drag and drop in admin
+* write documentation
 * templatetags
 * django-cms plugin
-* write documentation
+* map extent, boundaries, ecc
+* handle projections
 * More Raster Layers
 * More Vector Layers
 * Popup support for vector layer
