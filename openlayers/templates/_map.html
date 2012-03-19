@@ -1,42 +1,19 @@
+{% load openlayers %}
 {{ map.name }}
-<div id="map-{{ map.id }}" class="map map-{{ map.id }}">
 
-</div>
-
-
+{% div_for_map map %}
 
 </div>
 
 <script>
-    var map{{ map.id }} = new OpenLayers.Map('map-{{ map.id }}',{
-        controls : [    
-                    {% if map.navigation_control %}
-                        new OpenLayers.Control.Navigation(),
-                    {% endif %}
-                    {% if map.pan_zoom_bar_control %}
-                        new OpenLayers.Control.PanZoomBar(),
-                    {% endif %}
-                    {% if map.layer_switcher_control %}
-                        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
-                    {% endif %}
-                        //new OpenLayers.Control.Permalink(),
-                    {% if map.scale_line_control %}
-                        new OpenLayers.Control.ScaleLine(),
-                    {% endif %}
-                        //new OpenLayers.Control.Permalink('permalink'),
-                        //new OpenLayers.Control.MousePosition(),
-                        //new OpenLayers.Control.OverviewMap(),
-                        //new OpenLayers.Control.KeyboardDefaults()
-                    ]
-        }
-    );
     
+    var {% map_var map %} = {% map_instance map %}
     
     //raster layers
     {% for layer in map.raster_layers.all %}
     {% with u=layer.id|stringformat:"s" %}
     {% include "_raster_layer_js_instance.js" with layer=layer varname="layer_r_"|add:u %}    
-    map{{ map.id }}.addLayer({{ "layer_r_"|add:u }});
+    {% map_var map %}.addLayer({{ "layer_r_"|add:u }});
     {% endwith %}
     {% endfor %}
     
@@ -44,12 +21,12 @@
     {% for layer in map.vector_layers.all %}
     {% with u=layer.id|stringformat:"s" %} 
     {% include "_vector_layer_js_instance.js" with layer=layer varname="layer_v_"|add:u %}
-    map{{ map.id }}.addLayer({{ "layer_v_"|add:u }});
+    {% map_var map %}.addLayer({{ "layer_v_"|add:u }});
     {% endwith %}
     {% endfor %}
     
     //zooming
-    map{{ map.id }}.zoomToMaxExtent();
+    {% map_var map %}.zoomToMaxExtent();
     
     
 </script>
