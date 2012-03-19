@@ -4,13 +4,13 @@ from models import *
 
 class RasterLayerAdminInline(admin.StackedInline):
 
-    model = RasterLayer.maps.through
+    model = MapsRasterLayers 
     extra = 0
 
 
 class VectorLayerAdminInline(admin.StackedInline):
 
-    model = VectorLayer.maps.through
+    model = MapsVectorLayers 
     extra = 0
 
 

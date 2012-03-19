@@ -32,17 +32,8 @@ JS_BOOL_CHOICES = (
 
 
 
-class Map(models.Model):
-    
-    name = models.CharField(null=False, blank=False, unique=True, max_length=200)
-    description = models.TextField(null=True, blank=True)
-    navigation_control = models.BooleanField(default=True)
-    layer_switcher_control = models.BooleanField(default=False)
-    scale_line_control = models.BooleanField(default=False)
-    pan_zoom_bar_control = models.BooleanField(default=False)
-    
-    def getDivId(self):
-        return getSlug(self.name)
+
+
     
 class _Layer(models.Model):
 
@@ -59,13 +50,13 @@ class _Layer(models.Model):
         
 class RasterLayer(_Layer):
     
-    maps = models.ManyToManyField(Map, related_name='raster_layers', null=True, blank=True)
+    #maps = models.ManyToManyField(Map, related_name='raster_layers', null=True, blank=True)
     type = models.CharField(max_length=300, choices = RASTER_LAYERS_TYPES)
     
 
 class VectorLayer(_Layer):
     
-    maps = models.ManyToManyField(Map, related_name='vector_layers', null=True, blank=True)
+    #maps = models.ManyToManyField(Map, related_name='vector_layers', null=True, blank=True)
     type = models.CharField(max_length=300, choices = VECTOR_LAYERS_TYPES)
     layer_uri =  models.CharField(null=True, blank=True, max_length=300)
     
@@ -77,20 +68,48 @@ class VectorLayer(_Layer):
 
 
 
-class UploadedFile(models.Model):
-    file = models.FileField(upload_to='openlayers')
+class Map(models.Model):
+    
+    name = models.CharField(null=False, blank=False, unique=True, max_length=200)
     description = models.TextField(null=True, blank=True)
+    
+    raster_layers = models.ManyToManyField(RasterLayer, through='MapsRasterLayers')
+    vector_layers = models.ManyToManyField(VectorLayer, through='MapsVectorLayers')
+    
+    navigation_control = models.BooleanField(default=True)
+    layer_switcher_control = models.BooleanField(default=False)
+    scale_line_control = models.BooleanField(default=False)
+    pan_zoom_bar_control = models.BooleanField(default=False)
+    
+    def getDivId(self):
+        return getSlug(self.name)
 
 
-"""    
+
+
 class MapsRasterLayers(models.Model):
 
     map = models.ForeignKey(Map)
     layer = models.ForeignKey(RasterLayer)
+    order = models.IntegerField(blank=True, null=True)
+    
+    class Meta:
+        ordering = ('order',)
     
 
 class MapsVectorLayers(models.Model):
 
     map = models.ForeignKey(Map)
     layer = models.ForeignKey(VectorLayer)
-"""
+    order = models.IntegerField(blank=True, null=True)
+    
+    class Meta:
+        ordering = ('order',)
+
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to='openlayers')
+    description = models.TextField(null=True, blank=True)
+
+
+
