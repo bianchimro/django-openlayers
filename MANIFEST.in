@@ -1,1 +1,3 @@
 include LICENSE README.rst
+recursive-include openlayers/templates *.txt *.html *.xml *.js
+

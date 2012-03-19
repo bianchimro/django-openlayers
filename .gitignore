@@ -3,4 +3,6 @@ env/*
 build/*
 dist/*
 django_openlayers.egg-info/*
+*.db
+
 

@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import os
 
 
 setup(
@@ -11,6 +12,7 @@ setup(
     license='BSD',
     url='https://github.com/bianchimro/django-openlayers',
     packages=find_packages(),
+    include_package_data=True,
     zip_safe=False,
     classifiers=[
         'Development Status :: 3 - Alpha',
