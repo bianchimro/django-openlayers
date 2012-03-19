@@ -10,7 +10,7 @@ that comes with Django.
 provide a more stable version very soon.**
 
 One motivation for building this app is to be able to deploy easily kml, gml and
-other map types in a django-cms plugin (This feature is still to be implemented)
+other map types in a django-cms plugin (This feature is still to be implemented, but will come soon)
 
 
 Implemented Features
@@ -39,6 +39,12 @@ Installation
 ------------
 
 To be written.
+
+
+Demo
+----
+
+The app comes with a demo django project
 
 
 Compatibility
