@@ -1,7 +1,7 @@
 django-openlayers
 =================
 
-django-openayers to be a reusable django app that allows displaying
+django-openayers aims to be a reusable django app that allows displaying
 maps from files and other sources supported by the awesome OpenLayers library.
 OpenLayers is also the library used by GeoDjango, the contributed gis application 
 that comes with Django.
