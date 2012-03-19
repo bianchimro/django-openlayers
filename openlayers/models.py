@@ -54,13 +54,13 @@ class _Layer(models.Model):
         
 class RasterLayer(_Layer):
     
-    maps = models.ManyToManyField(Map, related_name='raster_layers')
+    maps = models.ManyToManyField(Map, related_name='raster_layers', null=True, blank=True)
     type = models.CharField(max_length=300, choices = RASTER_LAYERS_TYPES)
     
 
 class VectorLayer(_Layer):
     
-    maps = models.ManyToManyField(Map, related_name='vector_layers')
+    maps = models.ManyToManyField(Map, related_name='vector_layers', null=True, blank=True)
     type = models.CharField(max_length=300, choices = VECTOR_LAYERS_TYPES)
     layer_uri =  models.CharField(null=True, blank=True, max_length=300)
     

@@ -1,4 +1,5 @@
-new OpenLayers.Layer.Vector("{{ layer.name }}", {
+var {{ varname }}=function(){
+    return new OpenLayers.Layer.Vector("{{ layer.name }}", {
             strategies: [new OpenLayers.Strategy.Fixed()],
             protocol: new OpenLayers.Protocol.HTTP({
                 url: "{{ layer.layer_uri }}",
@@ -9,3 +10,4 @@ new OpenLayers.Layer.Vector("{{ layer.name }}", {
                 })
             })
         })
+}();

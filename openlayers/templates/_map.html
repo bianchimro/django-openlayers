@@ -34,26 +34,22 @@
     
     //raster layers
     {% for layer in map.raster_layers.all %}
-        {% with u=layer.id|stringformat:"s" %}
-            var {{ "layer_v_"|add:u }}={% include "_raster_layer_js_instance.js" with layer=layer varname="layer_v_"|add:u %}    
-            map{{ map.id }}.addLayer({{ "layer_v_"|add:u }});
-        {% endwith %}
-
+    {% with u=layer.id|stringformat:"s" %}
+    {% include "_raster_layer_js_instance.js" with layer=layer varname="layer_r_"|add:u %}    
+    map{{ map.id }}.addLayer({{ "layer_r_"|add:u }});
+    {% endwith %}
     {% endfor %}
     
-
-    //vector layer
+    //vector layers
     {% for layer in map.vector_layers.all %}
-        
-        console.log('{{ layer.name }}', '{{ layer.type }}')
-        var layer_v_{{ forloop.counter0 }} = {% include "_vector_layer_js_instance.js" with layer=layer %}
-        console.log(layer_v_{{ forloop.counter0 }});
-        map{{ map.id }}.addLayer(layer_v_{{ forloop.counter0 }});
-
+    {% with u=layer.id|stringformat:"s" %} 
+    {% include "_vector_layer_js_instance.js" with layer=layer varname="layer_v_"|add:u %}
+    map{{ map.id }}.addLayer({{ "layer_v_"|add:u }});
+    {% endwith %}
     {% endfor %}
+    
+    //zooming
     map{{ map.id }}.zoomToMaxExtent();
-    
-    
     
     
 </script>

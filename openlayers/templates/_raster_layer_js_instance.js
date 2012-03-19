@@ -1,5 +1,5 @@
 {% load openlayers %}
-function(){
+var {{ varname }}=function(){
 {% if layer.type == 'OSM' %}
     return new OpenLayers.Layer.OSM("{{ layer.name }}");
 {% endif %}
@@ -17,8 +17,7 @@ function(){
         var type = google.maps.MapTypeId.HYBRID;
     {% endif %}
     return new OpenLayers.Layer.Google("{{ layer.name }}",
-        {   type : type }
+        { type : type }
     );
 {% endif %}
 }();
-//{{ varname }} = getInstanceForVar_{{ varname }}();
