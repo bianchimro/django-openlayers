@@ -19,4 +19,4 @@ new OpenLayers.Map('map-{{ map.id }}',{
                         //new OpenLayers.Control.KeyboardDefaults()
                     ]
         }
-    );
+    )
