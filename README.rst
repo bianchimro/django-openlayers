@@ -34,6 +34,7 @@ RoadMap/Planned Features
 * More Vector Layers
 * Popup support for vector layer
 * Feature inspector for vector layer
+* Cross-origin vector layer sources
 * Automatic json layers (or other format) from selected GeoDjango models, with generic views
 
 
