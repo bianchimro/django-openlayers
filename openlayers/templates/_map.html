@@ -11,18 +11,15 @@
     
     //raster layers
     {% for layer in map.raster_layers.all %}
-    {% with u=layer.id|stringformat:"s" %}
-    {% include "_raster_layer_js_instance.js" with layer=layer varname="layer_r_"|add:u %}    
-    {% map_var map %}.addLayer({{ "layer_r_"|add:u }});
-    {% endwith %}
+    var {% raster_layer_var layer %} = {% raster_layer_instance layer %};
+    {% map_var map %}.addLayer({% raster_layer_var layer %});
     {% endfor %}
+    
     
     //vector layers
     {% for layer in map.vector_layers.all %}
-    {% with u=layer.id|stringformat:"s" %} 
-    {% include "_vector_layer_js_instance.js" with layer=layer varname="layer_v_"|add:u %}
-    {% map_var map %}.addLayer({{ "layer_v_"|add:u }});
-    {% endwith %}
+    var {% vector_layer_var layer %} = {% vector_layer_instance layer %};
+    {% map_var map %}.addLayer({% vector_layer_var layer %});
     {% endfor %}
     
     //zooming

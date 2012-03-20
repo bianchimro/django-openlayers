@@ -1,4 +1,4 @@
-var {{ varname }}=function(){
+function(){
     return new OpenLayers.Layer.Vector("{{ layer.name }}", {
             strategies: [new OpenLayers.Strategy.Fixed()],
             protocol: new OpenLayers.Protocol.HTTP({
@@ -10,4 +10,4 @@ var {{ varname }}=function(){
                 })
             })
         })
-}();
+}()

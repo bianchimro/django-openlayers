@@ -1,5 +1,6 @@
 {% load openlayers %}
-var {{ varname }}=function(){
+
+function(){
 {% if layer.type == 'OSM' %}
     return new OpenLayers.Layer.OSM("{{ layer.name }}");
 {% endif %}
@@ -20,4 +21,4 @@ var {{ varname }}=function(){
         { type : type }
     );
 {% endif %}
-}();
+}()
