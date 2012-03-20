@@ -7,7 +7,7 @@ new OpenLayers.Map('map-{{ map.id }}',{
                         new OpenLayers.Control.PanZoomBar(),
                     {% endif %}
                     {% if map.layer_switcher_control %}
-                        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
+                        new OpenLayers.Control.LayerSwitcher(),
                     {% endif %}
                         //new OpenLayers.Control.Permalink(),
                     {% if map.scale_line_control %}

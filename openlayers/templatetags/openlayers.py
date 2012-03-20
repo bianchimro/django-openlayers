@@ -44,10 +44,10 @@ def map_instance(map):
     return {'map':map}
     
 
-@register.inclusion_tag('_vector_layer_js_instance.js')
+@register.inclusion_tag('tags/_vector_layer_js_instance.js')
 def vector_layer_instance(layer):
     return {'layer':layer}
     
-@register.inclusion_tag('_raster_layer_js_instance.js')
+@register.inclusion_tag('tags/_raster_layer_js_instance.js')
 def raster_layer_instance(layer):
     return {'layer':layer}

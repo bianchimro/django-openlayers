@@ -1,6 +1,4 @@
-{% load openlayers %}
-
-function(){
+{% load openlayers %}function(){
 {% if layer.type == 'OSM' %}
     return new OpenLayers.Layer.OSM("{{ layer.name }}");
 {% endif %}

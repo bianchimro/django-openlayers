@@ -83,7 +83,26 @@ class Map(models.Model):
     
     def getDivId(self):
         return getSlug(self.name)
+        
+    #this is an alternate approach for generating js.
+    #still thinking about using it.
+    def getJsonOptions(self):
+        map_name = "map-"+str(map.id)
+        map_options = {}
+        map_controls = []
+        if self.navigation_control:
+            map_controls.append("new OpenLayers.Control.Navigation()")
+        if self.pan_zoom_bar_control:
+            map_controls.append("new OpenLayers.Control.PanZoomBar()")
+        if self.layer_switcher_control:
+            map_controls.append("new OpenLayers.Control.LayerSwitcher()")
+        if self.scale_line_control:
+            map_controls.append("new OpenLayers.Control.ScaleLine()")
 
+        map_options['controls'] = map_controls
+        out = [map_name, map_options]
+
+        return json.dumps(out);
 
 
 
