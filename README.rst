@@ -10,7 +10,7 @@ that comes with Django.
 provide a more stable version very soon.**
 
 One motivation for building this app is to be able to deploy easily kml, gml and
-other map types in a django-cms plugin (This feature is still to be implemented, but will come soon)
+other map types in a django-cms plugin. 
 
 
 Implemented Features
@@ -31,7 +31,7 @@ RoadMap/Planned Features
 * layer ordering, with drag and drop in admin
 * write documentation
 * templatetags
-* django-cms plugin
+* django-cms plugin: work is in progress. A very basic implementation is included.
 * map extent, boundaries, ecc
 * handle projections
 * More Raster Layers
@@ -52,7 +52,8 @@ To be written.
 Demo
 ----
 
-The app comes with a demo django project
+The app comes with a demo django project and 
+a demo_cms project that includes django-cms integration
 
 
 Compatibility
