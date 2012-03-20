@@ -1,18 +1,25 @@
 {% load openlayers %}
 <h1>{{ map.name }}</h1>
-{% div_for_map map %}
+{% include "_div_for_map.html" with map=map %}
 <script>
-    var {% map_var map %} = {% map_instance map %};
+
+
+    var map{{ map.id }} = {% include "_map_instance.js" with map=map %};
     //raster layers
     {% for layer in map.raster_layers.all %}
-    var {% raster_layer_var layer %} = {% raster_layer_instance layer %};
-    {% map_var map %}.addLayer({% raster_layer_var layer %});
+        var layer_r_{{ layer.id }} = {% include "_raster_layer_js_instance.js" with layer=layer %};
+        map{{ map.id }}.addLayer(layer_r_{{ layer.id }});
     {% endfor %}
     //vector layers
     {% for layer in map.vector_layers.all %}
-    var {% vector_layer_var layer %} = {% vector_layer_instance layer %};
-    {% map_var map %}.addLayer({% vector_layer_var layer %});
+        var layer_v_{{ layer.id }} = {% include "_vector_layer_js_instance.js" with layer=layer %};
+        map{{ map.id }}.addLayer(layer_v_{{ layer.id }});
     {% endfor %}
     //zooming
-    {% map_var map %}.zoomToMaxExtent();
+    
+     map{{ map.id }}.zoomToMaxExtent();
+
+
+
+
 </script>

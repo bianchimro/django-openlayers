@@ -17,16 +17,16 @@ def contains(value, arg):
 
 
 @register.inclusion_tag('tags/_div_for_map.html')
-def div_for_map(map):
+def div_for_map(mapid):
     '''
     Inclusion tag sample
     '''
-    return {'map':map}
+    return {'mapid':mapid}
 
     
 @register.simple_tag
-def map_var(map):
-    return "map" + str(map.id)
+def map_var(mapid):
+    return "map-" + str(mapid)
 
 
 @register.simple_tag
@@ -51,3 +51,5 @@ def vector_layer_instance(layer):
 @register.inclusion_tag('tags/_raster_layer_js_instance.js')
 def raster_layer_instance(layer):
     return {'layer':layer}
+    
+    

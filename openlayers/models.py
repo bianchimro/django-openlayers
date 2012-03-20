@@ -131,4 +131,10 @@ class UploadedFile(models.Model):
     description = models.TextField(null=True, blank=True)
 
 
+try:
+    import cms
+    from cms_models import *
+except:
+    pass
+
 

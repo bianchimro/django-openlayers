@@ -6,7 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
+    url(r'^openlayers/', include('openlayers.urls')),
     url(r'^', include('cms.urls')),
+
 )
 
 if settings.DEBUG:
