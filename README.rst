@@ -16,6 +16,8 @@ other map types in a django-cms plugin.
 Implemented Features
 --------------------
 
+current version: 0.0.1
+
 * basic Map, VectorLayer and RasterLayer and UploadedFile models
 * Raster Layers: OSM and Google (street, terrain, satellite, hybrid)
 * Vector Layers: KML
@@ -27,6 +29,8 @@ Implemented Features
 
 RoadMap/Planned Features
 ------------------------
+
+planned version: 0.1.0
 
 * layer ordering, with drag and drop in admin
 * write documentation
