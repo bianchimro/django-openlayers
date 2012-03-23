@@ -81,6 +81,15 @@ class Map(models.Model):
     scale_line_control = models.BooleanField(default=False)
     pan_zoom_bar_control = models.BooleanField(default=False)
     
+    @property
+    def ordered_raster_layers(self):
+        return self.raster_layers.order_by('mapsrasterlayers__order')
+        
+    @property
+    def ordered_vector_layers(self):
+        return self.vector_layers.order_by('mapsvectorlayers__order')
+
+
     def getDivId(self):
         return getSlug(self.name)
         
