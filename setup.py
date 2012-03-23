@@ -4,7 +4,7 @@ import os
 
 setup(
     name='django-openlayers',
-    version='0.0.1',
+    version='0.0.2',
     description='Django Openlayers reusable app',
     long_description=open('README.rst').read(),
     author='Mauro Bianchi',
